@@ -1,0 +1,22 @@
+{
+   "name": "getService",
+   "version": "0.0.1",
+   "description": "Awesome project developed with TypeORM.",
+   "devDependencies": {
+      "ts-node": "3.3.0",
+      "@types/node": "^8.0.29",
+      "typescript": "2.5.2"
+   },
+   "dependencies": {
+      "body-parser": "^1.18.1",
+      "express": "^4.15.4",
+      "md5": "^2.3.0",
+      "mysql": "^2.14.1",
+      "reflect-metadata": "^0.1.10",
+      "typeorm": "0.2.7"
+   },
+   "scripts": {
+      "start": "ts-node src/index.ts",
+      "server": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/index.ts --delay 1500ms"
+   }
+}
