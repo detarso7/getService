@@ -15,9 +15,17 @@ import config from "./configuration/config"
       (app as any)[route.method](route.route, (req: Request, res: Response, next: Function) => {
           const result = (new (route.controller as any))[route.action](req, res, next);
           if (result instanceof Promise) {
-              result.then(result => result !== null && result !== undefined ? res.send(result) : undefined);
+             // result.then(result => result !== null && result !== undefined ? res.send(result) : undefined);
+            result.then( d => {
+                if (d && d.status)
+                res.status(d.status).send(d.massage || d.errors);
+                else
+                res.json(d);
+            }
 
-          } else if (result !== null && result !== undefined) {
+            )
+          
+            } else if (result !== null && result !== undefined) {
               res.json(result);
           }
       });
