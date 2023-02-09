@@ -5,10 +5,12 @@ import * as bodyParser from "body-parser";
 import {Request, Response} from "express";
 import {Routes} from "./routes";
 import config from "./configuration/config"
+import auth from "./middlaware/auth";
 
   // create express app
   const app = express();
   app.use(bodyParser.json());
+  app.use(auth)
 
   // register express routes from defined application routes
   Routes.forEach(route => {
