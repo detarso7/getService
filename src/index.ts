@@ -10,7 +10,7 @@ import auth from "./middlaware/auth";
   // create express app
   const app = express();
   app.use(bodyParser.json());
-  app.use(auth)
+  //app.use(auth)
 
   // register express routes from defined application routes
   Routes.forEach(route => {
