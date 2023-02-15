@@ -13,30 +13,60 @@ export class UserController extends BaseController<User> {
     }
 
     async auth(request: Request) {
+
+        //-----------------------------------------
+        console.log('auth function called'); // adiciona este log
+        //-----------------------------------------
+
         let { email, password } = request.body;
+
+        //-----------------------------------------
+        console.log('email:', email); // adiciona este log
+        console.log('password:', password); // adiciona este log
+        //-----------------------------------------
+
         if (!email || !password)
             return { status: 400, message: 'Informe o email e a senha para efetuar o login' };
 
+        //-----------------------------------------
+        let passwordMd5 = password;//log
+        console.log('password MD5:', passwordMd5); // log
+        //-----------------------------------------
+
         let user = await this.repository.findOne({ email: email, password: md5(password) });
+
+        //-----------------------------------------
+        console.log('body do user', user); // log
+        //-----------------------------------------
+
         if (user) {
+            
             let _payload = {
                 uid: user.uid,
                 name: user.name,
                 photo: user.photo,
                 email: user.email
-            }
-            return {
-                status: 200,
+            }; 
+
+            //-----------------------------------------
+            console.log('body do user', _payload); // log
+            //-----------------------------------------
+        
+            console.log
+            ( {   status: 200,
                 message: {
                     user: _payload,
                     token: sign({
                         ..._payload, 
                         tm: new Date().getTime()
-                    }, config.secretyKey)
-                }
-            }
+                    }, config.secretyKey,)
+                },
+                
+            })
+            console.log('body do user', request ); // log
         } else
             return { status: 404, message: 'E-mail ou senha inválidos' }
+            
     }
 
     async createUser(request: Request) {
