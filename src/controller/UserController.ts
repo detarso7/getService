@@ -41,7 +41,7 @@ export class UserController extends BaseController<User> {
                 },
                 
             }
-            console.log('body do user', request ); // log
+
         } else
             return { status: 404, message: 'E-mail ou senha inválidos' }
             

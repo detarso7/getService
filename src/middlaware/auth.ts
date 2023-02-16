@@ -3,9 +3,22 @@ import { verify } from 'jsonwebtoken';
 import config from '../configuration/config';
 
 export default async (req: Request, res: Response, next: Function) => {
-
+    
     let token = req.body.token || req.query.token || req.headers['x-token-access'];
- 
+    let publicRoutes = <Array<String>>config.publicRoutes;
+    let isPublicRoute: boolean = false;
+
+    publicRoutes.forEach(url => {
+      let isPublic = req.url.includes(url);
+      if (isPublic)
+        isPublicRoute = true;
+    });
+
+    if (isPublicRoute)
+    next()
+
+    else
+
     if (token) {
       
       try {
