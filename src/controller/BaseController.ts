@@ -58,8 +58,16 @@ export abstract class BaseController<T> extends BaseNotification {
       let model: any = await this._repository.findOne(uid);
       if (model) {
         model.deleted = true;
+        return this._repository.save(model);
+      }else{
+        return{
+          status:404,
+          error:[
+            'Item não encontrado no banco de dados'
+          ]
+        }
       }
-      return this._repository.save(model);
+      
     }
 
     get repository(): Repository<T>{
