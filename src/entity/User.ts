@@ -1,7 +1,7 @@
 import {Entity, Column} from "typeorm";
 import { BaseEntity } from "./BaseEntity";
 
-@Entity({name: "User"})
+@Entity()
 export class User extends BaseEntity{
 
 
