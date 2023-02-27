@@ -1,6 +1,7 @@
+import { createConnection } from "typeorm";
 import { Category } from "../entity/Category";
 import { User } from "../entity/User";
-import { createConnection } from "typeorm";
+import { SubCategory } from "../entity/SubCategory";
 
 const cfg = require('../../ormconfig.json')
 
@@ -18,7 +19,8 @@ export default {
             logging: false,
             entities: [
                User,
-               Category
+               Category,
+               SubCategory
             ]
         })
         console.log('Banco conectado!')

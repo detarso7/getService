@@ -1,4 +1,5 @@
 import { CategoryController } from "./controller/CategoryController";
+import { SubCategoryController } from "./controller/SubCategoryController";
 import {UserController} from "./controller/UserController";
 
 export const Routes = [
@@ -12,5 +13,10 @@ export const Routes = [
 {method: "get", route: "/category", controller: CategoryController, action: "all"}, 
 {method: "get", route: "/category/:id", controller: CategoryController, action: "one"}, 
 {method: "post", route: "/category", controller: CategoryController, action: "save"},
-{method: "delete", route: "/category/:id", controller: CategoryController, action: "remove"}
+{method: "delete", route: "/category/:id", controller: CategoryController, action: "remove"},
+
+{method: "get", route: "/subcategory", controller: SubCategoryController, action: "all"}, 
+{method: "get", route: "/subcategory/:id", controller: SubCategoryController, action: "one"}, 
+{method: "post", route: "/subcategory", controller: SubCategoryController, action: "save"},
+{method: "delete", route: "/subcategory/:id", controller: SubCategoryController, action: "remove"}
 ];

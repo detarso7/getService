@@ -39,7 +39,6 @@ import auth from "./middlaware/auth";
 
         try {
             await connection.createConnection();
-
             
         } catch (error) {
             console.log('Data base no conected', error);
