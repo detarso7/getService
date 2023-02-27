@@ -5,6 +5,7 @@ import * as bodyParser from "body-parser";
 import {Request, Response} from "express";
 import {Routes} from "./routes";
 import config from "./configuration/config"
+import connection from "./configuration/connection"
 import auth from "./middlaware/auth";
 
   // create express app
@@ -37,8 +38,8 @@ import auth from "./middlaware/auth";
         console.log(`Api inicializada na porta ${config.port}`);
 
         try {
-            await createConnection();
-            console.log(`Database conected`);
+            await connection.createConnection();
+
             
         } catch (error) {
             console.log('Data base no conected', error);
