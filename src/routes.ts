@@ -1,4 +1,5 @@
 import { CategoryController } from "./controller/CategoryController";
+import { QuestionController } from "./controller/QuestionController";
 import { SubCategoryController } from "./controller/SubCategoryController";
 import {UserController} from "./controller/UserController";
 
@@ -18,5 +19,10 @@ export const Routes = [
 {method: "get", route: "/subcategory", controller: SubCategoryController, action: "all"}, 
 {method: "get", route: "/subcategory/:id", controller: SubCategoryController, action: "one"}, 
 {method: "post", route: "/subcategory", controller: SubCategoryController, action: "save"},
-{method: "delete", route: "/subcategory/:id", controller: SubCategoryController, action: "remove"}
+{method: "delete", route: "/subcategory/:id", controller: SubCategoryController, action: "remove"},
+
+{method: "get", route: "/question", controller: QuestionController, action: "all"}, 
+{method: "get", route: "/question/:id", controller: QuestionController, action: "one"}, 
+{method: "post", route: "/question", controller: QuestionController, action: "save"},
+{method: "delete", route: "/question/:id", controller: QuestionController, action: "remove"}
 ];

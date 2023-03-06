@@ -14,7 +14,8 @@ export abstract class BaseController<T> extends BaseNotification {
       this._repository = getRepository<T>(entity);
     }
   
-    async all() {
+    async all(request: Request) {
+      console.log('user', request.userAuth)
       return this._repository.find(
         {
           where:{
@@ -33,7 +34,7 @@ export abstract class BaseController<T> extends BaseNotification {
       if (model.uid) {
 
 
-        delete model['uid']
+
         delete model['createAt']
         delete model['updateAt']
         delete model['deleted']
