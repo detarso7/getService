@@ -6,7 +6,7 @@ export class SubCategoryController extends BaseController<SubCategory>{
     constructor(){
         super(SubCategory)
     }
-
+//Validação
     async save(request: Request) {
         let _subCategory = <SubCategory>request.body;
         super.isRequired(_subCategory.name, 'O nome da sub-categoria é obrigatório');
