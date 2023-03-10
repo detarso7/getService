@@ -46,7 +46,7 @@ export class UserController extends BaseController<User> {
             return { status: 404, message: 'E-mail ou senha inválidos' }
             
     }
-
+    //Validação
     async createUser(request: Request) {
         let { name, photo, email, password, confirmPassword, isRoot } = request.body;
         super.isRequired(name, 'Informe o nome');
