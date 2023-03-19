@@ -2,7 +2,7 @@ import { Column, Entity, ManyToOne } from "typeorm";
 import { BaseEntity } from "./BaseEntity";
 import { Category } from "./Category";
 
-@Entity({name: "SubCategory"})
+@Entity()
 export class SubCategory extends BaseEntity{
 
 @Column({type: "varchar", length: 100})

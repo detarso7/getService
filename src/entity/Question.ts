@@ -3,7 +3,7 @@ import { BaseEntity } from "./BaseEntity";
 import { QuestionType } from "./enum/QuestionType";
 import { SubCategory } from "./SubCategory";
 
-@Entity({name: "Question"})
+@Entity()
 export class Question extends BaseEntity{
 
 
